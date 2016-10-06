@@ -7,6 +7,10 @@ function NotesController(NoteService) {
 
   vm.newNote;
 
+  vm.editNote = {};
+
+  vm.updateNote = updateNote;
+
   activate()
 
   function activate(){
@@ -24,6 +28,14 @@ function NotesController(NoteService) {
       getNotes();
     });
   }
+
+  function updateNote() {
+    return NoteService.updateNote(vm.editNote)
+    .then(function(){
+      getNotes();
+    });
+  }
+
 
   function setNotes(data) {
     return vm.notes = data;

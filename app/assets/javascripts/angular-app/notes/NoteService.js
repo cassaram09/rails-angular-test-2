@@ -1,7 +1,8 @@
 function NoteService($http){
   return {
     getNotes: getNotes,
-    createNote: createNote
+    createNote: createNote,
+    updateNote: updateNote
   }
 
   function getNotes() {
@@ -22,6 +23,21 @@ function NoteService($http){
       }
     };
     return $http(req).catch(handleError);
+  }
+
+  function updateNote(note){
+     var req = {
+      method: 'POST',
+      url: '/notes/' + note.id,
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      data: {
+        note: note
+      }
+    };
+    return $http(req).catch(handleError);
+
   }
 
   function handleResponse(response){
