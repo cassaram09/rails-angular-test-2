@@ -4,17 +4,15 @@ angular
     $stateProvider
       .state('home', {
         url: '/',
-        templateUrl: 'templates/home_controller_template.html',
-        controller: 'HomeController'
+        template: '<home-directive>'
       })
       .state('notes', {
         url: '/notes',
-        templateUrl: 'templates/notes.html',
-        controller: 'NotesController as vm'
+        template: '<notes-directive>'
       });
       $urlRouterProvider.otherwise('/');
   })
   .config(function($httpProvider) {
-            // for CSRF errors
-            $httpProvider.defaults.headers.common['X-CSRF-Token'] = $('meta[name=csrf-token]').attr('content');
-        });
+      // for CSRF errors
+      $httpProvider.defaults.headers.common['X-CSRF-Token'] = $('meta[name=csrf-token]').attr('content');
+  });

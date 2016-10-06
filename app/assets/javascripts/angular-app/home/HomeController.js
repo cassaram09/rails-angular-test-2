@@ -1,7 +1,7 @@
 function HomeController() {
   vm = this;
 
-  vm.name = "hello";
+  vm.name = "I'm in the public folder! We're in the home directive";
 
 }
 
