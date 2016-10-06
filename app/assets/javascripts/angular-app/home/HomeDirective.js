@@ -1,6 +1,6 @@
 function HomeDirective(){
   return {
-    templateUrl: 'templates/home_directive.html',
+    templateUrl: 'templates/home/home_directive.html',
     controller: 'HomeController as ctrl',
     restrict: 'EA'
   };
