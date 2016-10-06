@@ -29,8 +29,8 @@ function NotesController(NoteService) {
     });
   }
 
-  function updateNote() {
-    return NoteService.updateNote(vm.editNote)
+  function updateNote(note) {
+    return NoteService.updateNote(note)
     .then(function(){
       getNotes();
     });

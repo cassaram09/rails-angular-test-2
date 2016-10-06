@@ -27,7 +27,7 @@ function NoteService($http){
 
   function updateNote(note){
      var req = {
-      method: 'POST',
+      method: 'PATCH',
       url: '/notes/' + note.id,
       headers: {
         'Content-Type': 'application/json'

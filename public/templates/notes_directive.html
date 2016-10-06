@@ -18,7 +18,7 @@
     <li ng-repeat="note in ctrl.notes track by note.id">
       <h3>{{note.title}}</h3>
         <p>{{note.content}}</p>
-        <form ng-submit="ctrl.updateNote()">
+        <form ng-submit="ctrl.updateNote(note)">
           <label for="content">Content:</label>
           <input ng-model="note.title"></input>
           <textarea ng-model="note.content"></textarea>
