@@ -1,12 +1,27 @@
 function NoteService($http){
   return {
     getNotes: getNotes,
+    createNote: createNote
   }
 
   function getNotes() {
     return $http.get('/notes')
       .then(handleResponse)
       .catch(handleError);
+  }
+
+  function createNote(note){
+    var req = {
+      method: 'POST',
+      url: '/notes',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      data: {
+        note: note
+      }
+    };
+    return $http(req).catch(handleError);
   }
 
   function handleResponse(response){

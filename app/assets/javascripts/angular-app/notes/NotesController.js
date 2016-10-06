@@ -3,6 +3,10 @@ function NotesController(NoteService) {
 
   vm.name = "We're using the notes controller";
 
+  vm.createNote = createNote;
+
+  vm.newNote;
+
   activate()
 
   function activate(){
@@ -10,7 +14,15 @@ function NotesController(NoteService) {
   }
 
   function getNotes(){
-    return NoteService.getNotes().then(setNotes)
+    return NoteService.getNotes().then(setNotes);
+  }
+
+  function createNote() {
+    return NoteService.createNote(vm.newNote)
+    .then(function(){
+      vm.newNote = '';
+      getNotes();
+    });
   }
 
   function setNotes(data) {

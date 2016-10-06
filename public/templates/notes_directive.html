@@ -3,6 +3,17 @@
 
   <p>{{ctrl.name}}</p>
 
+  <div ng-include='templates/new_note.html'></div>
+
+  <h1>Post a Note</h1>
+
+<form ng-submit="ctrl.createNote()">
+    <label for="content">Content:</label>
+    <input ng-model="ctrl.newNote.title"></input>
+    <textarea ng-model="ctrl.newNote.content"></textarea>
+    <input type="submit" value="Create Note">
+</form>
+
   <ul>
     <li ng-repeat="note in ctrl.notes">
       <h3>{{note.title}}</h3>
